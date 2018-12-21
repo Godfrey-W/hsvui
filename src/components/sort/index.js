@@ -3,7 +3,9 @@ export default {
   name: 'HsSort',
   props: {
     value: {
-      type: String,
+      validator (value) {
+        return ['default', 'asc', 'desc'].includes(value)
+      },
       default: 'default'
     },
     size: {

@@ -5,11 +5,11 @@ const webpackBaseConfig = require('./webpack.base.config')
 module.exports = merge(webpackBaseConfig, {
   mode: 'production',
   entry: {
-    vine: './src/index.js'
+    hsvui: './src/index.js'
   },
   output: {
     path: path.join(__dirname, '../lib'),
-    library: 'vine',
+    library: 'hsvui',
     libraryTarget: 'umd',
     filename: '[name].min.js',
     umdNamedDefine: true,
