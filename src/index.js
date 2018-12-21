@@ -2,8 +2,10 @@
 import { version } from '../package.json'
 
 import Sendcode from './components/sendcode'
-import { Rollnotice, RollnoticeItem } from './components/rollnotice'
-import { Collapse, CollapsePanel } from './components/collapse'
+import Rollnotice from './components/rollnotice'
+import RollnoticeItem from './components/rollnotice-item'
+import Collapse from './components/collapse'
+import CollapsePanel from './components/collapse-panel'
 import Sort from './components/sort'
 import TradeSlider from './components/trade-slider'
 

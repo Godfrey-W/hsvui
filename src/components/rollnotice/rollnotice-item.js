@@ -1,4 +1,4 @@
-import { isServer } from '@/utils'
+import { isServer } from '../../utils'
 const prefixCls = 'hs-rollnotice'
 export default {
   name: 'HsRollnoticeItem',

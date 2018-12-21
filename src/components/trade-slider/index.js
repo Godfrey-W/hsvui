@@ -1,4 +1,4 @@
-import { on, off } from '@/utils/dom'
+import { on, off } from '../../utils/dom'
 const prefixCls = 'hs-trade-slider'
 export default {
   name: 'HsTradeSlider',

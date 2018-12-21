@@ -1,12 +1,12 @@
 {
   "name": "hsvui",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "Vue basic components",
   "main": "lib/hsvui.js",
   "style": "lib/styles/hsvui.css",
   "files": [
     "lib",
-    "packages"
+    "src"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
