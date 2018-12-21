@@ -24,7 +24,7 @@ import VueRouter from 'vue-router';
 import App from './app.vue';
 import Routers from './router.js';
 import hsvui from 'hsvui';
-import 'hsvui/lib/styles/wyst.css';
+import 'hsvui/lib/styles/hsvui.css';
 
 Vue.use(VueRouter);
 Vue.use(hsvui);
