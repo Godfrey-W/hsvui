@@ -1,5 +1,7 @@
 # Hsvui
 
+## [demo](https://godfrey-w.github.io/hsvui)
+
 ## Install
 
 Using npm:
