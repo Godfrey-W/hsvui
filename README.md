@@ -4,73 +4,75 @@
 
 ## Install
 
-Using npm:
 ``` js
-npm install hsvui --save
+npm install hsvui -S
 ```
 
-Using a script tag for global use:
+## Quick Start
 
-``` html
-<script type="text/javascript" src="hsvui.min.js"></script>
-<link rel="stylesheet" href="lib/styles/hsvui.css">
-```
+#### 完整引入
 
-### Import
-
-Import hsvui in the entry file (main.js as usual) of webpack:
+在 main.js 中写入以下内容：
 
 ``` js
 import Vue from 'vue';
-import VueRouter from 'vue-router';
-import App from './app.vue';
-import Routers from './router.js';
-import hsvui from 'hsvui';
-import 'hsvui/lib/styles/hsvui.css';
+import Hsvui from 'hsvui';
+import 'hsvui/lib/hsvui-css/index.css';
+import App from './App.vue';
 
-Vue.use(VueRouter);
-Vue.use(hsvui);
-
-// The routing configuration
-const RouterConfig = {
-    routes: Routers
-};
-const router = new VueRouter(RouterConfig);
+Vue.use(Hsvui);
 
 new Vue({
-    el: '#app',
-    router: router,
-    render: h => h(App)
+  el: '#app',
+  render: h => h(App)
 });
 ```
-## Usage
 
-### Import on demand #
+#### 按需引入
 
-By using the [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), you can load components on demand and reduce the size of files. First installation, then update .babelrc file:
+借助 [**babel-plugin-component**](https://github.com/ElementUI/babel-plugin-component)，我们可以只引入需要的组件，以达到减小项目体积的目的。
+
+首先，安装 babel-plugin-component：
 
 ``` js
-npm install babel-plugin-import --save-dev
+npm install babel-plugin-component -D
 ```
 
+然后，将 .babelrc 修改为：
+
 ``` js
-// .babelrc
 {
-  "plugins": [["import", {
-    "libraryName": "hsvui",
-    "libraryDirectory": "src/components"
-  }]]
+  "presets": [
+    "@vue/app"
+  ],
+  "plugins": [
+    [
+      "component",
+      {
+        "libraryName": "hsvui",
+        "styleLibraryName": "hsvui-css"
+      }
+    ]
+  ]
 }
 ```
 
-Now you can import components like:
+引入部分组件：
 
 ``` js
-import { Sendcode } from 'hsvui';
-// Vue.component('sendcode', Sendcode);
-Vue.component(Sendcode.name, Sendcode);
+import Vue from 'vue';
+import { Rollnotice, RollnoticeItem } from 'hsvui';
+import App from './App.vue';
+
+Vue.component(Rollnotice.name, Rollnotice);
+Vue.component(RollnoticeItem.name, RollnoticeItem);
+/* 或写为
+ * Vue.use(Rollnotice)
+ * Vue.use(RollnoticeItem)
+ */
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+});
 ```
-
-### Reminder
-
-- Partial import will only effect logic level; you still need to import all the styles, which means add **import 'wyst/dist/styles/iview.css';** to main.js or the root component.

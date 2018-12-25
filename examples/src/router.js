@@ -1,47 +1,51 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import Demo from './pages/demo'
+import Sendcode from './pages/sendcode'
+import Rollnotice from './pages/rollnotice'
+import Collapse from './pages/collapse'
+import Sort from './pages/sort'
+import TradeSlider from './pages/trade-slider'
+
 Vue.use(VueRouter)
+
+const routes = [
+  {
+    path: '/',
+    name: 'demo',
+    component: Demo
+  },
+  {
+    path: '/sendcode',
+    name: 'sendcode',
+    component: Sendcode
+  },
+  {
+    path: '/rollnotice',
+    name: 'rollnotice',
+    component: Rollnotice
+  },
+  {
+    path: '/collapse',
+    name: 'collapse',
+    component: Collapse
+  },
+  {
+    path: '/sort',
+    name: 'sort',
+    component: Sort
+  },
+  {
+    path: '/trade-slider',
+    name: 'trade-slider',
+    component: TradeSlider
+  }
+]
 
 const router = new VueRouter({
   mode: 'hash',
-  routes: [
-    {
-      path: '/',
-      name: 'demo-nav',
-      component: () => import('./components/demo-nav')
-    },
-    {
-      path: '/sendcode',
-      name: 'demo-sendcode',
-      component: () => import('@/components/sendcode/demo')
-    },
-    {
-      path: '/rollnotice',
-      name: 'demo-rollnotice',
-      component: () => import('@/components/rollnotice/demo')
-    },
-    {
-      path: '/collapse',
-      name: 'demo-collapse',
-      component: () => import('@/components/collapse/demo')
-    },
-    {
-      path: '/sort',
-      name: 'demo-sort',
-      component: () => import('@/components/sort/demo')
-    },
-    {
-      path: '/rate',
-      name: 'demo-rate',
-      component: () => import('@/components/rate/demo')
-    },
-    {
-      path: '/trade-slider',
-      name: 'demo-trade-slider',
-      component: () => import('@/components/trade-slider/demo')
-    }
-  ]
+  routes
 })
 
 export default router

@@ -3,13 +3,11 @@
     <router-view />
   </div>
 </template>
-
 <script>
 export default {
-  name: 'app'
+  name: 'App'
 }
 </script>
-
 <style lang="scss">
   html {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);

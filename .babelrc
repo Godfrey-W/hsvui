@@ -1,0 +1,20 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env"
+    ]
+  ],
+  "plugins": ["transform-vue-jsx"],
+  "env": {
+    "utils": {
+      "plugins": [
+        ["module-resolver", {
+          "root": ["hsvui"],
+          "alias": {
+            "hsvui/src": "hsvui/lib"
+          }
+        }]
+      ]
+    }
+  }
+}

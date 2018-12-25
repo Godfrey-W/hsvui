@@ -1,0 +1,32 @@
+@import './common/var';
+
+.#{$prefix}-rollnotice {
+  overflow: hidden;
+  width: 100%;
+  flex: 1;
+
+  &__content {
+    height: inherit;
+  }
+
+  &__align {
+    &-left {
+      justify-content: flex-start;
+    }
+
+    &-right {
+      justify-content: flex-end;
+    }
+
+    &-center {
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: inherit;
+  }
+}
