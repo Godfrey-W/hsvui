@@ -33,7 +33,8 @@ export default {
         { name: 'rollnotice', label: 'Rollnotice 滚动公告' },
         { name: 'collapse', label: 'Collapse 折叠面板' },
         { name: 'sort', label: 'Sort 排序' },
-        { name: 'trade-slider', label: 'TradeSlider 交易滑块' }
+        { name: 'trade-slider', label: 'TradeSlider 交易滑块' },
+        { name: 'icon', label: 'Icon 图标' }
       ]
     }
   }

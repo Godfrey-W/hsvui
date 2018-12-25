@@ -18,4 +18,12 @@ export default {
     font-size: 14px;
     background-color: #f5f5f9;
   }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  p {
+    margin: 0;
+  }
 </style>

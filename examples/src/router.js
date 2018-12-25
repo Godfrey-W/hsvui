@@ -7,6 +7,7 @@ import Rollnotice from './pages/rollnotice'
 import Collapse from './pages/collapse'
 import Sort from './pages/sort'
 import TradeSlider from './pages/trade-slider'
+import Icon from './pages/icon'
 
 Vue.use(VueRouter)
 
@@ -40,6 +41,11 @@ const routes = [
     path: '/trade-slider',
     name: 'trade-slider',
     component: TradeSlider
+  },
+  {
+    path: '/icon',
+    name: 'icon',
+    component: Icon
   }
 ]
 

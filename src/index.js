@@ -2,6 +2,7 @@
 
 import Collapse from '../packages/collapse/index.js'
 import CollapsePanel from '../packages/collapse-panel/index.js'
+import Icon from '../packages/icon/index.js'
 import Rollnotice from '../packages/rollnotice/index.js'
 import RollnoticeItem from '../packages/rollnotice-item/index.js'
 import Sendcode from '../packages/sendcode/index.js'
@@ -11,6 +12,7 @@ import TradeSlider from '../packages/trade-slider/index.js'
 const components = [
   Collapse,
   CollapsePanel,
+  Icon,
   Rollnotice,
   RollnoticeItem,
   Sendcode,
@@ -34,6 +36,7 @@ export default {
   install,
   Collapse,
   CollapsePanel,
+  Icon,
   Rollnotice,
   RollnoticeItem,
   Sendcode,
