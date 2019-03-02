@@ -6,9 +6,9 @@ export default {
       type: String,
       default: 'button'
     },
-    init: {
-      type: String,
-      default: '发送验证码'
+    options: {
+      type: Object,
+      default: null
     },
     second: {
       default: 60,
@@ -16,24 +16,17 @@ export default {
         return /^\d*$/.test(val)
       }
     },
-    run: {
-      type: String,
-      default: '{%s}s'
-    },
-    reset: {
-      type: String,
-      default: '重新发送'
-    },
     value: Boolean,
     storageKey: String
   },
   data () {
     return {
-      tmpStr: this.init,
+      tmpStr: '',
       timer: null,
       start: false,
       runSecond: this.second,
-      lastSecond: 0
+      lastSecond: 0,
+      resend: false
     }
   },
   computed: {
@@ -41,6 +34,18 @@ export default {
       return {
         [`${prefixCls}--disabled`]: this.start
       }
+    },
+    isObjWithOpts () {
+      return this.options && typeof this.options === 'object'
+    },
+    initTxt () {
+      return this.isObjWithOpts && this.options.initTxt ? this.options.initTxt : '发送验证码'
+    },
+    runTxt () {
+      return this.isObjWithOpts && this.options.runTxt ? this.options.runTxt : '{%s}s'
+    },
+    resetTxt () {
+      return this.isObjWithOpts && this.options.resetTxt ? this.options.resetTxt : '重新发送验证码'
     }
   },
   watch: {
@@ -48,7 +53,7 @@ export default {
       this.start = val
       if (!val) {
         clearInterval(this.timer)
-        this.tmpStr = this.init
+        this.tmpStr = this.resend ? this.resetTxt : this.initTxt
         if (this.storageKey) {
           window.sessionStorage.removeItem(this.storageKey)
           this.lastSecond = 0
@@ -59,7 +64,10 @@ export default {
     }
   },
   created () {
-    if (typeof window !== 'undefined') return
+    this.tmpStr = this.initTxt
+
+    if (typeof window === 'undefined') return
+
     const lastSecond = ~~((window.sessionStorage.getItem(this.storageKey) - Date.now()) / 1000)
     if (lastSecond > 0 && this.storageKey) {
       this.$emit('input', true)
@@ -91,26 +99,30 @@ export default {
       }, 1000)
     },
     timeout () {
-      this.tmpStr = this.reset
+      this.resend = true
+      this.tmpStr = this.resetTxt
       this.start = false
       this.$emit('input', false)
       clearInterval(this.timer)
     },
     getStr (second) {
-      return this.run.replace(/\{([^{]*?)%s(.*?)\}/g, second)
+      return this.runTxt.replace(/\{([^{]*?)%s(.*?)\}/g, second)
     }
   },
   render (h) {
-    const { tag, classes, handleClick, start, tmpStr } = this
+    const { tag, classes, handleClick, start, tmpStr, $attrs } = this
+    const attrs = { ...$attrs }
+    if (tag === 'button') {
+      attrs.type = 'button'
+      attrs.disabled = start
+    }
     return h(tag, {
       staticClass: prefixCls,
       class: classes,
       on: {
         click: handleClick
       },
-      attrs: {
-        disabled: tag === 'button' && start
-      }
+      attrs
     }, [tmpStr])
   }
 }

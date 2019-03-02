@@ -1,6 +1,6 @@
 {
   "name": "hsvui",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A Component Library for Vue.js.",
   "main": "lib/hsvui.common.js",
   "files": [

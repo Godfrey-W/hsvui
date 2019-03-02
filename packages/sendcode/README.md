@@ -20,7 +20,5 @@ Vue.use(Sendcode);
 |------|------|------|------|------|
 | value | 开始倒计时的状态 | Boolean | true, false | false |
 | second | 倒计时时长（秒） | Number, String | - | 120 |
-| init | 初始化按钮显示文本 | String | - | 发送验证码 |
-| run | 运行时显示文本 | String | - | {%s}s |
-| reset | 运行结束后显示文本 | String | - | 重新发送 |
+| options | 文本配置, options.initTxt(初始化按钮显示文本, 默认`发送验证码`), options.runTxt(运行时显示文本, 默认`{%s}s`), options.restTxt(运行结束后显示文本, 默认`重新发送验证码`) | Object | - | null |
 | storage-key | 储存倒计时剩余时间sessionStorage的键值，设置不为空后，刷新页面倒计时将继续 | String | - | - |
