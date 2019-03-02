@@ -59,6 +59,7 @@ export default {
     }
   },
   created () {
+    if (typeof window !== 'undefined') return
     const lastSecond = ~~((window.sessionStorage.getItem(this.storageKey) - Date.now()) / 1000)
     if (lastSecond > 0 && this.storageKey) {
       this.$emit('input', true)

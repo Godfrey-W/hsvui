@@ -11,7 +11,7 @@ Vue.use(Sendcode);
 ### 代码演示
 
 ``` html
-<hsvui-sendcode v-model="sendCodeStatus" @click="sendCodeStatus = !sendCodeStatus" />
+<hs-sendcode v-model="sendCodeStatus" @click="sendCodeStatus = !sendCodeStatus" />
 ```
 
 ### API
